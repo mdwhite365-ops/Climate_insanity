@@ -1,0 +1,258 @@
+:root {
+  --navy: #0b3954;
+  --teal: #087e8b;
+  --bg: #e3f1f3;            /* page background: pale sea-foam */
+  --ink: #1c2b33;
+  --white: #ffffff;
+  --header-height: 64px;
+}
+
+* {
+  box-sizing: border-box;   /* padding no longer adds to element width */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;  /* menu links glide instead of snapping */
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--teal);
+}
+
+/* Sticky header (flex row) */
+.site-header {
+  position: sticky;         /* pins to the top while scrolling */
+  top: 0;
+  z-index: 100;             /* sits above page content */
+  height: var(--header-height);
+  display: flex;
+  align-items: center;      /* vertical centering */
+  gap: 12px;
+  padding: 0 16px;
+  background: var(--navy);  /* needed, or content shows through */
+  color: var(--white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.site-title {
+  flex: 1;                  /* fills the space between logo and button */
+  text-align: center;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+}
+
+.menu-checkbox {
+  display: none;
+}
+
+.menu-button {
+  font-size: 1.8rem;
+  line-height: 1;
+  padding: 6px 12px;
+  border: 2px solid var(--white);
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.menu-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Dropdown menu */
+.site-menu {
+  display: none; 
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--navy);
+  padding: 8px 16px 16px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+.menu-checkbox:checked ~ .site-menu {
+  display: block;
+}
+
+.site-menu ul {
+  list-style: none;
+}
+
+.site-menu a {
+  display: block;
+  padding: 10px 8px;
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.site-menu a:hover {
+  background: var(--teal);
+}
+
+.site-menu ul ul {          /* Short term / Long term */
+  padding-left: 20px;
+}
+
+/* Main content */
+main {
+  max-width: 800px;
+  margin: 0 auto;           /* centers the column */
+  padding: 0 16px 32px;
+  background: var(--white); /* white content card on the tinted page */
+}
+
+section,
+article {
+  scroll-margin-top: calc(var(--header-height) + 8px); /* header won't cover jump targets */
+}
+
+section {
+  margin-top: 40px;
+}
+
+h2 {
+  color: var(--navy);
+  font-size: 1.8rem;
+  border-bottom: 3px solid var(--teal);
+  padding-bottom: 4px;
+  margin-bottom: 16px;
+}
+
+h3 {
+  color: var(--teal);
+  font-size: 1.3rem;
+  margin: 24px 0 8px;
+}
+
+p {
+  margin-top: 12px;
+}
+
+/* Figures */
+figure {
+  margin: 12px 0;
+}
+
+figure img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+figcaption {
+  font-size: 0.85rem;
+  color: #55656e;
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* Intro */
+.intro {
+  margin-top: 0;
+}
+
+.intro figure {
+  margin: 0 -16px;          /* image runs edge to edge on phones */
+}
+
+.intro img {
+  height: 240px;
+  object-fit: cover;        /* crops instead of stretching */
+  border-radius: 0;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  margin-top: 16px;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--navy);
+  color: var(--white);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;   /* stacked on phones */
+  gap: 24px;
+  text-align: center;
+}
+
+.site-footer h2 {
+  color: var(--white);
+  font-size: 1.2rem;
+  border-bottom: 2px solid var(--teal);
+  display: inline-block;
+}
+
+.site-footer ul {
+  list-style: none;
+}
+
+.site-footer a {
+  color: #9be3ea;
+}
+
+/* Larger screens (tablet / desktop) */
+
+@media (min-width: 768px) {
+
+  /* The hamburger stays on every screen size.
+     Header keeps the same row: logo left, title centered, button right. */
+  .site-header {
+    padding: 0 32px;
+  }
+
+  /* On wide screens the dropdown becomes a compact panel under the
+     button instead of stretching across the whole width */
+  .site-menu {
+    left: auto;
+    right: 32px;            /* lines up with the button */
+    width: 280px;
+    border-radius: 0 0 8px 8px;
+  }
+
+  /* Content column turns into a white card on the tinted background */
+  main {
+    margin: 24px auto;
+    padding: 32px 32px 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(11, 57, 84, 0.12);
+  }
+
+  .intro figure {
+    margin: 0; 
+  }
+
+  .intro img {
+    height: 380px;
+    border-radius: 8px;
+  }
+
+  .site-footer {
+    flex-direction: row;    /* three columns */
+    justify-content: space-around;
+    text-align: left;
+  }
+}
