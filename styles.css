@@ -146,6 +146,7 @@ a {
 }
 
 .submenu-label {
+  
   display: block;
   padding: 10px 8px;
   color: var(--white);
