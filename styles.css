@@ -1,20 +1,23 @@
 :root {
   --navy: #0b3954;
   --teal: #087e8b;
-  --bg: #e3f1f3;            /* page background: pale sea-foam */
+  --bg: #e3f1f3;
+  /* page background: pale sea-foam */
   --ink: #1c2b33;
   --white: #ffffff;
   --header-height: 64px;
 }
 
 * {
-  box-sizing: border-box;   /* padding no longer adds to element width */
+  box-sizing: border-box;
+  /* padding no longer adds to element width */
   margin: 0;
   padding: 0;
 }
 
 html {
-  scroll-behavior: smooth;  /* menu links glide instead of snapping */
+  scroll-behavior: smooth;
+  /* menu links glide instead of snapping */
 }
 
 body {
@@ -36,15 +39,19 @@ a {
 
 /* Sticky header (flex row) */
 .site-header {
-  position: sticky;         /* pins to the top while scrolling */
+  position: sticky;
+  /* pins to the top while scrolling */
   top: 0;
-  z-index: 100;             /* sits above page content */
+  z-index: 100;
+  /* sits above page content */
   height: var(--header-height);
   display: flex;
-  align-items: center;      /* vertical centering */
+  align-items: center;
+  /* vertical centering */
   gap: 12px;
   padding: 0 16px;
-  background: var(--navy);  /* needed, or content shows through */
+  background: var(--navy);
+  /* needed, or content shows through */
   color: var(--white);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
@@ -55,7 +62,8 @@ a {
 }
 
 .site-title {
-  flex: 1;                  /* fills the space between logo and button */
+  flex: 1;
+  /* fills the space between logo and button */
   text-align: center;
   font-size: 1.4rem;
   letter-spacing: 0.04em;
@@ -64,6 +72,7 @@ a {
 .menu-checkbox {
   display: none;
 }
+
 /* Hamburger button centered */
 .menu-button {
   display: flex;
@@ -79,7 +88,7 @@ a {
   user-select: none;
   flex-shrink: 0;
   align-self: center;
-  
+
 }
 
 .menu-button span {
@@ -96,7 +105,7 @@ a {
 
 /* Dropdown menu */
 .site-menu {
-  display: none; 
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
@@ -106,7 +115,7 @@ a {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
 }
 
-.menu-checkbox:checked ~ .site-menu {
+.menu-checkbox:checked~.site-menu {
   display: block;
 }
 
@@ -119,28 +128,65 @@ a {
   padding: 10px 8px;
   color: var(--white);
   text-decoration: none;
-  border-radius: 4px; 
+  border-radius: 4px;
 }
 
 .site-menu a:hover {
   background: var(--teal);
 }
 
-.site-menu ul ul {          /* Short term / Long term */
+.site-menu ul ul {
+  /* Short term / Long term */
   padding-left: 20px;
+}
+
+/* sub dropdown menu for initiatives */
+.submenu-checkbox {
+  display: none;
+}
+
+.submenu-label {
+  display: block;
+  padding: 10px 8px;
+  color: var(--white);
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.submenu-label:hover {
+  background: var(--teal);
+}
+
+.site-menu ul ul {
+  display: none;
+  padding-left: 0;
+}
+
+.submenu-checkbox:checked~ul {
+  display: block;
+}
+.site-menu ul ul a {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.85;
 }
 
 /* Main content */
 main {
   max-width: 800px;
-  margin: 0 auto;           /* centers the column */
+  margin: 0 auto;
+  /* centers the column */
   padding: 0 16px 32px;
-  background: var(--white); /* white content card on the tinted page */
+  background: var(--white);
+  /* white content card on the tinted page */
 }
 
 section,
 article {
-  scroll-margin-top: calc(var(--header-height) + 8px); /* header won't cover jump targets */
+  scroll-margin-top: calc(var(--header-height) + 8px);
+  /* header won't cover jump targets */
 }
 
 section {
@@ -189,12 +235,14 @@ figcaption {
 }
 
 .intro figure {
-  margin: 0 -16px;          /* image runs edge to edge on phones */
+  margin: 0 -16px;
+  /* image runs edge to edge on phones */
 }
 
 .intro img {
   height: 240px;
-  object-fit: cover;        /* crops instead of stretching */
+  object-fit: cover;
+  /* crops instead of stretching */
   border-radius: 0;
 }
 
@@ -209,7 +257,8 @@ figcaption {
   color: var(--white);
   padding: 24px 16px;
   display: flex;
-  flex-direction: column;   /* stacked on phones */
+  flex-direction: column;
+  /* stacked on phones */
   gap: 24px;
   text-align: center;
 }
@@ -243,7 +292,8 @@ figcaption {
      button instead of stretching across the whole width */
   .site-menu {
     left: auto;
-    right: 32px;            /* lines up with the button */
+    right: 32px;
+    /* lines up with the button */
     width: 280px;
     border-radius: 0 0 8px 8px;
   }
@@ -257,7 +307,7 @@ figcaption {
   }
 
   .intro figure {
-    margin: 0; 
+    margin: 0;
   }
 
   .intro img {
@@ -266,7 +316,8 @@ figcaption {
   }
 
   .site-footer {
-    flex-direction: row;    /* three columns */
+    flex-direction: row;
+    /* three columns */
     justify-content: space-around;
     text-align: left;
   }
