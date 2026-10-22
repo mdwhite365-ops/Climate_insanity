@@ -5,7 +5,12 @@
   /* page background: pale sea-foam */
   --ink: #1c2b33;
   --white: #ffffff;
-  --header-height: 64px;
+  --header-height: 96px;
+}
+
+head {
+  background: linear-gradient(to bottom, #370505, #ccc);
+  padding: 16px;
 }
 
 * {
@@ -21,10 +26,28 @@ html {
 }
 
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.6;
+  /* font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  line-height: 2.2rem;
   color: var(--ink);
-  background: var(--bg);
+  /* dark blue */
+  /* background: radial-gradient(circle,
+      rgb(28, 47, 123) 28%,
+      rgba(8, 8, 39, 1) 86%,
+      rgba(10, 12, 36, 1) 110%); */
+/* sunset */
+  /* background: radial-gradient(circle,
+      rgb(123, 72, 28) 28%,
+      rgb(37, 39, 8) 86%,
+      rgb(36, 32, 10) 110%); */
+  background: radial-gradient(circle,
+      rgb(28, 123, 106) 28%,
+      rgb(122, 39, 130)40%,
+      rgb(21, 46, 98) 86%,
+      rgb(114, 102, 31) 110%);
+
+  background-size: cover;
+  background-position: center;
 }
 
 img {
@@ -50,23 +73,50 @@ a {
   /* vertical centering */
   gap: 12px;
   padding: 0 16px;
-  background: var(--navy);
+  /* background: var(--navy); */
+  background: radial-gradient(circle,
+      rgb(28, 47, 123) 28%,
+      rgba(8, 8, 39, 1) 86%,
+      rgba(10, 12, 36, 1) 110%);
+   /* background: radial-gradient(circle,
+      rgb(28, 123, 106) 28%,
+      rgb(122, 39, 130)40%,
+      rgb(21, 46, 98) 86%,
+      rgb(114, 102, 31) 110%); */
   /* needed, or content shows through */
+  opacity: .9;
   color: var(--white);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
+.site-title:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s;
+}
+
+.site-title:hover::after {
+  transform: rotate(45deg);
+  transition: transform 0.5s;
+}
+
 .logo {
-  height: 40px;
+  
+  height: 80px;
   width: auto;
+
 }
 
 .site-title {
+
   flex: 1;
   /* fills the space between logo and button */
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   letter-spacing: 0.04em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
+  font-family: fantasy;
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+
 }
 
 .menu-checkbox {
@@ -113,6 +163,7 @@ a {
   background: var(--navy);
   padding: 8px 16px 16px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+  font-size: 1.2rem;
 }
 
 .menu-checkbox:checked~.site-menu {
@@ -146,6 +197,7 @@ a {
 }
 
 .submenu-label {
+
   display: block;
   padding: 10px 8px;
   color: var(--white);
@@ -162,20 +214,24 @@ a {
 .site-menu ul ul {
   display: none;
   padding-left: 0;
+  
 }
 
 .submenu-checkbox:checked~ul {
   display: block;
 }
+
 .site-menu ul ul a {
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1.0rem;
   opacity: 0.85;
+
 }
 
 /* Main content */
 main {
-  max-width: 800px;
+  min-width: 300px;
+  max-width: 1080px;
   margin: 0 auto;
   /* centers the column */
   padding: 0 16px 32px;
@@ -195,7 +251,7 @@ section {
 
 h2 {
   color: var(--navy);
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   border-bottom: 3px solid var(--teal);
   padding-bottom: 4px;
   margin-bottom: 16px;
@@ -203,11 +259,12 @@ h2 {
 
 h3 {
   color: var(--teal);
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   margin: 24px 0 8px;
 }
 
 p {
+  font-size: 1.3rem;
   margin-top: 12px;
 }
 
@@ -223,7 +280,8 @@ figure img {
 }
 
 figcaption {
-  font-size: 0.85rem;
+  font-family: cursive;
+  font-size: 1.25rem;
   color: #55656e;
   text-align: center;
   margin-top: 6px;
@@ -247,7 +305,7 @@ figcaption {
 }
 
 .intro p {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   margin-top: 16px;
 }
 
@@ -261,6 +319,7 @@ figcaption {
   /* stacked on phones */
   gap: 24px;
   text-align: center;
+  font-family: fantasy;
 }
 
 .site-footer h2 {
